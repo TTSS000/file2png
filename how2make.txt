@@ -1,0 +1,22 @@
+PNG is loss less compressed image. So, it can be used to archive a file. This can avoid security check over Internet.
+
+Install libpng library first.
+
+Then:
+
+Linux:
+
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT file2png.o -MD -MP -MF $depbase.Tpo -c -o file2png.o file2png.c
+gcc -g -O2 -o file2png file2png.o /usr/lib64/libpng.so  -lz -L/usr/lib64
+
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT png2file.o -MD -MP -MF $depbase.Tpo -c -o png2file.o png2file.c
+gcc -g -O2 -o png2file png2file.o /usr/lib64/libpng.so  -lz -L/usr/lib64
+
+
+Cygwin:
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT file2png.o -MD -MP -MF $depbase.Tpo -c -o file2png.o file2png.c
+gcc -g -O2 -o file2png.exe file2png.o  /cygdrive/c/cygwin64/lib/libpng16.dll.a -lz -L/cygdrive/c/cygwin64/lib
+
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT png2file.o -MD -MP -MF $depbase.Tpo -c -o png2file.o png2file.c
+gcc -g -O2 -o png2file.exe png2file.o  /cygdrive/c/cygwin64/lib/libpng16.dll.a -lz -L/cygdrive/c/cygwin64/lib
+
